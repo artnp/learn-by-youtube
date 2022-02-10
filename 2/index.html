@@ -1,0 +1,55 @@
+<html>
+    <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+        <script src="../jquery.min.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+            body{
+                font-family: 'Rowdies', cursive;
+            }
+            </style>
+            <title>วิชาที่ 2</title>
+    </head>
+    <body>
+<center><h1>วิชาที่: 2</h1>
+    <font size="3"><a href="../index.html"><-กลับหน้าหลัก</a></font><br><br>
+    Youtube video URL: <br><input type="text" onFocus="this.select()" id="playlisturl2" style="font-size:16pt;height:40px;width:440px;;background-color:rgb(236, 166, 209);">	
+    >> <button type="button" class="save" style="font-size:14pt;height:33px;width:130px;"><b>Save URL</b></button>
+
+		<hr>
+ 
+        <div id="youtube"></div>
+        <br>----------------<br>
+ปิดเว็บ-เปิดเว็บขึ้นมาใหม่ก็จำค่าให้เลย ไม่ต้องกรอกใหม่<br><br>
+<button class="howto"><วิธีใช้งาน></button>
+
+</center>
+        <script>
+            if(localStorage) {
+	$(document).ready(function() {
+		$(".save").click(function() {
+			// Get input name
+			var playlisturl2 = $("#playlisturl2").val();
+            localStorage.setItem("playlisturl2", playlisturl2);
+			location.reload()
+		});
+        var url = localStorage.getItem("playlisturl2").replace(/youtu.be/g, 'youtube.com/embed')
+        document.getElementById("playlisturl2").setAttribute('value' , url );
+        document.getElementById('youtube').innerHTML="<iframe width='1000' height='400' src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+});
+}
+
+
+document.querySelector(".howto").addEventListener("click", function() {
+  Swal.fire({
+    html:
+    '<iframe width="460" height="315" src="https://www.youtube.com/embed/AsUBdIwnWSc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    confirmButtonColor: "#D021CA",
+    showCancelButton: false,
+
+
+  });
+});
+        </script>
+        </body>
+        </html>
