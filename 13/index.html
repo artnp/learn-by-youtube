@@ -3,10 +3,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
         <script src="../jquery.min.js"></script>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
-            body{
-                font-family: 'Rowdies', cursive;
-            }
+ @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+body{
+ font-family: 'Rowdies', cursive;
+ }
+ a {
+color: black;
+text-decoration: none;
+}
+a:hover {
+color: hotpink;
+}
             </style>
             <title>วิชาที่ 13</title>
     </head>
@@ -22,7 +29,7 @@
         <br>----------------<br>
 ปิดเว็บ-เปิดเว็บขึ้นมาใหม่ก็จำค่าให้เลย ไม่ต้องกรอกใหม่<br><br>
 <button class="howto"><วิธีใช้งาน></button>
-
+<br><br><font size="5"><a href="javascript:randomlink()">🎲 สุ่ม Random วิชาเรียน</a></font>🎲
 </center>
         <script>
             if(localStorage) {
@@ -50,6 +57,26 @@ document.querySelector(".howto").addEventListener("click", function() {
 
   });
 });
+var random = new Array();
+
+random[0] = "../1/index.html";
+random[1] = "../2/index.html";
+random[2] = "../3/index.html";
+random[3] = "../4/index.html";
+random[4] = "../5/index.html";
+random[5] = "../6/index.html";
+random[6] = "../7/index.html";
+random[7] = "../8/index.html";
+random[8] = "../9/index.html";
+random[9] = "../10/index.html";
+random[10] = "../11/index.html";
+random[11] = "../12/index.html";
+random[12] = "../13/index.html";
+random[13] = "../14/index.html";
+
+function randomlink() {
+window.location = random[Math.floor(Math.random()*random.length)];
+}
         </script>
         </body>
         </html>
