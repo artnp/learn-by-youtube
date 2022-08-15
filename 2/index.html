@@ -45,7 +45,7 @@ color: hotpink;
 		});
         var url = localStorage.getItem("playlisturl2").replace(/youtu.be/g, 'youtube.com/embed')
         document.getElementById("playlisturl2").setAttribute('value' , url );
-        document.getElementById('youtube').innerHTML="<iframe width='1000' height='400' src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+        document.getElementById('youtube').innerHTML="<iframe width='1500' height='550' src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
 });
 }
 
@@ -53,7 +53,7 @@ color: hotpink;
 document.querySelector(".howto").addEventListener("click", function() {
   Swal.fire({
     html:
-    '<iframe width="460" height="315" src="https://www.youtube.com/embed/AsUBdIwnWSc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    '<iframe width="1500" height="550" src="https://www.youtube.com/embed/AsUBdIwnWSc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
     confirmButtonColor: "#D021CA",
     showCancelButton: false,
 
