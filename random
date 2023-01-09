@@ -1,0 +1,23 @@
+<meta http-equiv="Refresh" content="0; url='javascript:randomlink()'" />
+<script>
+var random = new Array();
+
+random[0] = "1/index.html";
+random[1] = "2/index.html";
+random[2] = "3/index.html";
+random[3] = "4/index.html";
+random[4] = "5/index.html";
+random[5] = "6/index.html";
+random[6] = "7/index.html";
+random[7] = "8/index.html";
+random[8] = "9/index.html";
+random[9] = "10/index.html";
+random[10] = "11/index.html";
+random[11] = "12/index.html";
+random[12] = "13/index.html";
+random[13] = "14/index.html";
+
+function randomlink() {
+window.location = random[Math.floor(Math.random()*random.length)];
+}
+</script>
