@@ -3,7 +3,7 @@
 
 วิธีใช้
 - ให้เข้าหน้าแต่ละวิชาที่จะบันทึกดู youtube playlist
-- ให้คัดลอกเอาแค่ไอดีใน youtube playlist มาใส่ช่องบันทึก เช่น https://www.youtube.com/playlist?list=PLnH68E2enRfrkFpA1QcUxKqOnVJzCYxfV เอาแค่ PLnH68E2enRfrkFpA1QcUxKqOnVJzCYxfV
+- ให้คัดลอกเอาแค่ไอดีใน youtube playlist มาใส่ช่องบันทึก เช่น youtube.com/playlist?list=PLnH68E2enRfrkFpA1QcUxKqOnVJzCYxfV เอาแค่ PLnH68E2enRfrkFpA1QcUxKqOnVJzCYxfV
 - กด next เพื่อเลือกคลิปถัดไป / กด back เพื่อกลับไปดูคลิป
 - สคริปต์จะจดจำคลิปให้อัตโนมัติแม้ปิดออกจากเว็บไปแล้ว
 - เรียนจบหนึ่งคลิปให้กด next แล้วออกจากหน้าเว็บได้เลย
