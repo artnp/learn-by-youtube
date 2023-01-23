@@ -16,37 +16,80 @@ h1 {color: pink;}
 a:hover {
 color: hotpink;
 }
+#back:hover {
+  transform: scale(1.2);
+}
+#next:hover {
+  transform: scale(1.2);
+}
             </style>
             <title>วิชาที่ 2</title>
     </head>
     <body>
-<center><h1>วิชาที่: 2</h1>
+<center><h1>วิชาที่: 2 </h1>
     <font size="3"><a href="../index.html"><-กลับหน้าหลัก</a></font><br><br>
-    Youtube video URL: <br><input type="text" onFocus="this.select()" id="playlisturl2" style="font-size:16pt;height:40px;width:440px;;background-color:rgb(236, 166, 209);">	
-    >> <button type="button" class="save" style="font-size:14pt;height:33px;width:130px;"><b>Save URL</b></button>
-
+   Playlist ID:<input type="text" onFocus="this.select()" id="playlisturl2" style="font-size:16pt;height:40px;width:250px;;background-color:rgb(236, 166, 209);">	
+    <button type="button" class="save" style="font-size:14pt;height:33px;width:80px;"><b>Save</b></button>
 		<hr>
- 
-        <div id="youtube"></div>
-<br><br><font size="5"><a href="javascript:randomlink()">🎲 สุ่ม Random วิชาเรียน</a></font>🎲
-</center>
+        <table>
+            <tbody>
+            <tr>
+            <td style="width: 40px;"><div id="back"><img src="../back.png" width="140%"></div></td>
+            <td ><div id="youtube"></div></td>
+            <td style="width: 50px;"><div id="next"><img src="../next.png" width="140%"></div></td>
+            </tr>
+            <tr> <td></td>
+                <td><br><br><br><br><center><font size="6"><a href="javascript:randomlink()">🎲 สุ่ม Random วิชาเรียน</a>🎲</font>
+                </center></td>
+            <td></td></tr>
+            </tbody>
+        </center>
         <script>
+		
             if(localStorage) {
 	$(document).ready(function() {
 		$(".save").click(function() {
-			// Get input name
-			var playlisturl2 = $("#playlisturl2").val();
-            localStorage.setItem("playlisturl2", playlisturl2);
+			playlisturl2 = $("#playlisturl2").val()
+            
+            localStorage.setItem("playlisturl2", playlisturl2)
+            localStorage.setItem("current2", 0)
 			location.reload()
-		});
-        var url = localStorage.getItem("playlisturl2").replace(/youtu.be/g, 'youtube.com/embed')
-        document.getElementById("playlisturl2").setAttribute('value' , url );
-        document.getElementById('youtube').innerHTML="<iframe width='1500' height='550' src='" + url + "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
-});
+		})
+        playlistID = localStorage.getItem("playlisturl2")
+        current = localStorage.getItem("current2")
+
+        fetch("https://yt.lemnoslife.com/playlistItems?part=snippet&playlistId="+ playlistID)
+        .then(response => response.json())
+        .then(data => {
+        Lengthvid = (data.items).length
+        nowID = data.items[current].snippet.resourceId.videoId
+        // console.log(data.items[0].snippet.resourceId.videoId)
+        document.getElementById("playlisturl2").setAttribute('value' , playlistID );
+        document.getElementById('youtube').innerHTML="<iframe width='1600' height='700' src='https://www.youtube.com/embed/" + nowID +"' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' ></iframe>";
+   
+    ////// next video
+     document.getElementById('next').addEventListener('click', function (event) {
+        recurrent =  parseFloat(current)
+        recurrent =  parseFloat(current)+1
+        recurrent2 = localStorage.setItem("current2", recurrent)
+        location.reload()
+        })
+    ////// back video
+    document.getElementById('back').addEventListener('click', function (event) {
+        recurrent =  parseFloat(current)
+        recurrent =  parseFloat(current)-1
+        recurrent2 = localStorage.setItem("current2", recurrent)
+        location.reload()
+        })
+        if (current == 0) {
+            document.getElementById("back").style.display = 'none'
+        } else if (current == Lengthvid-1){
+            document.getElementById("next").style.display = 'none'
+        }
+    })
+    })
 }
-
 var random = new Array();
-
 random[0] = "../1/index.html";
 random[1] = "../2/index.html";
 random[2] = "../3/index.html";
